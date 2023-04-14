@@ -34,7 +34,7 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "webpack --mode development --entry ./src/index.js --output-path ./static/frontend",
-    "build": "webpack --mode production --entry ./src/index.js --output-path ./build",
+    "build": "webpack --mode production --entry ./src/index.js --output-path ./build --display-error-details",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
