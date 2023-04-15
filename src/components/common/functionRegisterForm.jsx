@@ -5,6 +5,7 @@ import Joi from "joi-browser";
 import DjangoCSRFToken from "../../services/getCSRF";
 import {toast} from 'react-toastify';
 import config from '../../services/config.json'
+import './login.css'
 
 
 const RegisterForm = (props) => {
@@ -94,11 +95,13 @@ const RegisterForm = (props) => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+      <h3 className="text-center mb-4">Register</h3>
+
       <DjangoCSRFToken />
         <div className="form-group">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username"><b>Username</b> </label>
           <input
             name="username"
             onChange={handleChange}
@@ -111,7 +114,7 @@ const RegisterForm = (props) => {
           )}
 
           
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password"><b>Password</b> </label>
           <input
             name="password"
             onChange={handleChange}
@@ -124,14 +127,16 @@ const RegisterForm = (props) => {
             <div className="alert alert-danger">{errors.password}</div>
           )}
 
-
+            <div className="form-button">
           <button
             // disabled  attr should be true or false, by passing this.validate,
             // this.validate() returns either null = false or an object = truthy
-            className="btn btn-primary"
+            className="btn btn-primary mt-4"
           >
             Register
           </button>
+
+            </div>
         </div>
       </form>
     </div>

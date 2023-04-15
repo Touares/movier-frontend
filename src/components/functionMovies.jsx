@@ -44,7 +44,7 @@ const Movies = (props) => {
 
   const getMovieGenres = (movies, genres) => {
     const genreIds = movies.map(movie => movie.genre);
-    console.log(genreIds)
+    // console.log(genreIds)
     const movieGenres = [];
     for (const id of genreIds) {
       for (const genre of genres) {
@@ -56,7 +56,7 @@ const Movies = (props) => {
     }
     
     // const movieGenres = genres.filter(genre => genreIds.includes(genre.id));
-    console.log(movieGenres);
+    // console.log(movieGenres);
     return movieGenres;
   }
 
@@ -105,7 +105,7 @@ const Movies = (props) => {
     }
     catch (ex) {
       if (ex.response && ex.response.status === 404) {
-        console.log(ex.response.status)
+        // console.log(ex.response.status)
         toast.error('this movie does not exist or it has already been deleted');
         setMovies(originalMovies);
       }
@@ -120,12 +120,12 @@ const Movies = (props) => {
       filter === "all" ? movies : movies.filter((m) => m.genre.name === filter);
     const number = filteredMovies.length;
     return number > 0
-      ? "showing " + number + " movies in database"
+      ?  number + " movies in stock"
       : "there is no movie in database";
   }
 
   const handleLike = (movie) => {
-    console.log(movie);
+    // console.log(movie);
     const moviestoLike = movies;
     const index = moviestoLike.indexOf(movie);
     moviestoLike[index] = { ...movie };
@@ -134,7 +134,7 @@ const Movies = (props) => {
     } else {
       moviestoLike[index].liked = true;
     }
-    console.log(movie);
+    // console.log(movie);
 
     setMovies( moviestoLike );
   };
@@ -163,7 +163,7 @@ const Movies = (props) => {
     <React.Fragment>
     <div className="row">
       <div className="col-3">
-        <Filter genres={genres} onFilter={handleFilter} filter={filter} />
+        <Filter  genres={genres} onFilter={handleFilter} filter={filter} />
       </div>
       <div className="col-sm">
         <div className="row">
@@ -180,13 +180,14 @@ const Movies = (props) => {
                   <LiveSearchBox
                     value={search}
                     onChange={handleSearch}
+                    placeHolder='Search for movies'
                   />
                 </div>
               </div>
             </div>
             <div className="database-movies">
 
-            <h3 >{movieNumber()}</h3>
+            <h5 className="text-primary">{movieNumber()}</h5>
             </div>
 
             <Table

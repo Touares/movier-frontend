@@ -4,7 +4,7 @@ import {Link, NavLink} from 'react-router-dom'
 class Navbar extends Component {
     render() { 
         const {user} = this.props;
-        console.log(user);
+        // console.log(user);
         return (
             <nav style={{height:'60px'}} className="navbar navbar-expand-sm navbar-dark bg-primary">
                 <NavLink style={{marginLeft:'30px'}} className="navbar-brand" to="/">Vidly</NavLink>
